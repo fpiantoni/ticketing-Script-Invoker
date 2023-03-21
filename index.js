@@ -16,9 +16,15 @@ const requestWebsiteData = async () => {
             return true
         } else {
             console.log('Page is AVAILABLE')
-            for (i = 0; i < 25; i++) {
+            for (i = 0; i < 10; i++) {
                 childProc.exec(
                     'open -a "Google Chrome" "https://deportick.queue-it.net/?c=deportick&e=argentinacurazao"'
+                )
+                childProc.exec(
+                    'open -a "Brave Browser" "https://deportick.queue-it.net/?c=deportick&e=argentinacurazao"'
+                )
+                childProc.exec(
+                    'open -a "Safari" "https://deportick.queue-it.net/?c=deportick&e=argentinacurazao"'
                 )
             }
             return false
