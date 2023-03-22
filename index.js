@@ -28,6 +28,7 @@ const launchChrome = async () => {
         chromeFlags: chromeFlags,
     }
 
+    // Change this amount depending on the amount of chrome tabs you want to launch.
     let amountToLaunch = 20
     for (let i = 0; i < amountToLaunch; i++) {
         const chrome = await chromeLauncher.launch(chromeOptions)
