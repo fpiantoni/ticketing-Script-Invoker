@@ -31,7 +31,7 @@ const launchChrome = async () => {
     // Change this amount depending on the amount of chrome tabs you want to launch.
     let amountToLaunch = 20
     for (let i = 0; i < amountToLaunch; i++) {
-        const chrome = await chromeLauncher.launch(chromeOptions)
+        const chrome = chromeLauncher.launch(chromeOptions)
         console.log(`Chrome debugging port running on ${chrome.port}`)
     }
 
@@ -51,7 +51,7 @@ const requestWebsiteData = async () => {
         )
         console.log(request.request._redirectable._options.path)
         if (
-            request.request._redirectable._options.path !=
+            request.request._redirectable._options.path ===
             '/error?er=2&cid=en-US'
         ) {
             console.log('Page NOT available')
@@ -74,7 +74,8 @@ const requestWebsiteData = async () => {
     }
 }
 
-let CronJob = cron.schedule('*/10 * * * * *', async () => {
+// This cron runs every second
+let CronJob = cron.schedule('*/1 * * * * *', async () => {
     let script = await requestWebsiteData()
     if (script === false) console.log('Terminating Job'), CronJob.stop()
 })
