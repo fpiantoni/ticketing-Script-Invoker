@@ -7,8 +7,7 @@ const axios = require('axios')
 // the chrome applications.
 
 const launchChrome = async () => {
-    const baseUrl =
-        'https://deportick.queue-it.net/?c=deportick&e=argentinacurazao'
+    const baseUrl = 'https://deportick.queue-it.net/?c=deportick&e=argcur2023'
     const chromeFlags = [
         // '--disable-extensions',
         // '--disable-plugins',
@@ -29,7 +28,7 @@ const launchChrome = async () => {
     }
 
     // Change this amount depending on the amount of chrome tabs you want to launch.
-    let amountToLaunch = 20
+    let amountToLaunch = 15
     for (let i = 0; i < amountToLaunch; i++) {
         const chrome = chromeLauncher.launch(chromeOptions)
         console.log(`Chrome debugging port running on ${chrome.port}`)
@@ -47,8 +46,9 @@ const requestWebsiteData = async () => {
     // console.log('Verifying website data...')
     try {
         let request = await axios.get(
-            'https://deportick.queue-it.net/?c=deportick&e=argentinacurazao'
+            'https://deportick.queue-it.net/?c=deportick&e=argcur2023'
         )
+        console.log(request)
         console.log(request.request._redirectable._options.path)
         if (
             request.request._redirectable._options.path ===
@@ -61,10 +61,10 @@ const requestWebsiteData = async () => {
 
             launchChrome()
             childProc.exec(
-                'open -a "Brave Browser" "https://deportick.queue-it.net/?c=deportick&e=argentinacurazao"'
+                'open -a "Brave Browser" "https://deportick.queue-it.net/?c=deportick&e=argcur2023"'
             )
             childProc.exec(
-                'open -a "Safari" "https://deportick.queue-it.net/?c=deportick&e=argentinacurazao"'
+                'open -a "Safari" "https://deportick.queue-it.net/?c=deportick&e=argcur2023"'
             )
 
             return false
