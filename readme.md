@@ -9,7 +9,7 @@
   </a>
 </p>
 
-> Script to buy Arg vs Cur Tickets
+> Script to buy Arg vs Cur Tickets. IT WORKED AS PLANNED. +150 id for lines created!
 
 ### 🏠 [Homepage](franciscopiantoni.com)
 
@@ -35,14 +35,15 @@ npm run test
 
 👤 **Fran Piantoni**
 
-* Website: bircle.io
-* Twitter: [@0xFpiantoni](https://twitter.com/0xFpiantoni)
-* Github: [@fpiantoni](https://github.com/fpiantoni)
-* LinkedIn: [@franciscopiantonivera](https://linkedin.com/in/franciscopiantonivera)
+-   Website: bircle.io
+-   Twitter: [@0xFpiantoni](https://twitter.com/0xFpiantoni)
+-   Github: [@fpiantoni](https://github.com/fpiantoni)
+-   LinkedIn: [@franciscopiantonivera](https://linkedin.com/in/franciscopiantonivera)
 
 ## Show your support
 
 Give a ⭐️ if this project helped you!
 
-***
+---
+
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
