@@ -7,7 +7,8 @@ const axios = require('axios')
 // the chrome applications.
 
 const launchChrome = async () => {
-    const baseUrl = 'https://deportick.queue-it.net/?c=deportick&e=argcur2023'
+    const baseUrl =
+        'https://dfentertainment.queue-it.net/?c=dfentertainment&e=tsbcopat&cid=es-CL'
     const chromeFlags = [
         // '--disable-extensions',
         // '--disable-plugins',
@@ -28,7 +29,7 @@ const launchChrome = async () => {
     }
 
     // Change this amount depending on the amount of chrome tabs you want to launch.
-    let amountToLaunch = 15
+    let amountToLaunch = 1
     for (let i = 0; i < amountToLaunch; i++) {
         const chrome = chromeLauncher.launch(chromeOptions)
         console.log(`Chrome debugging port running on ${chrome.port}`)
@@ -45,39 +46,41 @@ const launchChrome = async () => {
 const requestWebsiteData = async () => {
     // console.log('Verifying website data...')
     try {
-        let request = await axios.get(
-            'https://deportick.queue-it.net/?c=deportick&e=argcur2023'
+        // let request = await axios.get(
+        //     'https://dfentertainment.queue-it.net/?c=dfentertainment&e=tsbcopat&cid=es-CL'
+        // )
+        // console.log(request)
+        // console.log(request.request._redirectable._options.path)
+        // if (
+        //     request.request._redirectable._options.path ===
+        //     '/error?er=2&cid=en-US'
+        // ) {
+        //     console.log('Page NOT available')
+        //     return true
+        // } else {
+        console.log('Page is AVAILABLE')
+
+        launchChrome()
+        childProc.exec(
+            'open -a "Brave Browser" "https://dfentertainment.queue-it.net/?c=dfentertainment&e=tsbcopat&cid=es-CL"'
         )
-        console.log(request)
-        console.log(request.request._redirectable._options.path)
-        if (
-            request.request._redirectable._options.path ===
-            '/error?er=2&cid=en-US'
-        ) {
-            console.log('Page NOT available')
-            return true
-        } else {
-            console.log('Page is AVAILABLE')
+        childProc.exec(
+            'open -a "Safari" "https://dfentertainment.queue-it.net/?c=dfentertainment&e=tsbcopat&cid=es-CL"'
+        )
 
-            launchChrome()
-            childProc.exec(
-                'open -a "Brave Browser" "https://deportick.queue-it.net/?c=deportick&e=argcur2023"'
-            )
-            childProc.exec(
-                'open -a "Safari" "https://deportick.queue-it.net/?c=deportick&e=argcur2023"'
-            )
-
-            return false
-        }
+        // return false
+        // }
     } catch (err) {
         console.log(err)
     }
 }
 
 // This cron runs every second
-let CronJob = cron.schedule('*/1 * * * * *', async () => {
-    let script = await requestWebsiteData()
-    if (script === false) console.log('Terminating Job'), CronJob.stop()
-})
+// let CronJob = cron.schedule('*/1 * * * * *', async () => {
+//     let script = await requestWebsiteData()
+//     if (script === false) console.log('Terminating Job'), CronJob.stop()
+// })
 
-CronJob.start()
+// CronJob.start()
+
+requestWebsiteData()
